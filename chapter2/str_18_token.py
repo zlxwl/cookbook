@@ -35,3 +35,11 @@ for token in tokens:
 
 # 注意包含形成的字串的情况。<= 放在<的前面。
 
+PRINT = r'(?P<PRINT>print)'
+NAME = r'(?P<NAME>[a-zA-Z_][a-zA-Z_0-9]*)'
+
+master_pattern = re.compile('|'.join([PRINT, NAME]))
+
+for token in generate_tokens(master_pattern, text='printer'):
+    print(token)
+
