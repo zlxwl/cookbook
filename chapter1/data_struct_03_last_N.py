@@ -7,6 +7,7 @@
 # Author     ：Zhong Lei
 """
 from collections import deque
+from tqdm import tqdm
 
 # d.pop(), d.popleft(), d.append(), d.appendleft()
 def search(lines, pattern, history=5):
@@ -18,8 +19,16 @@ def search(lines, pattern, history=5):
 
 
 if __name__ == '__main__':
+    # with open('somefile.txt', 'r') as f:
+    #     for line, previous in search(f, 'python', 5):
+    #         for pline in previous:
+    #             print(pline, end='')
+    #         print(line, end='')
+    #         print('-'*20)
+
+
     with open('somefile.txt', 'r') as f:
-        for line, previous in search(f, 'python', 5):
+        for line, previous in tqdm(search(f, 'python', 5)):
             for pline in previous:
                 print(pline, end='')
             print(line, end='')
