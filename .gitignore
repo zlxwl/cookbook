@@ -1,0 +1,5 @@
+/chapter4/bar
+/chapter4/foo
+.gitignore
+.idea/
+chapter4/out.txt
