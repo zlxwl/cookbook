@@ -2,7 +2,7 @@
 # -*-coding:utf-8 -*-
 
 """
-# File       : gen_iter_12_iter_in_diff_container.py
+# File       : gen_iter_12_iter_in_diff_container_chain.py
 # Time       ：2022/2/23 21:22
 # Author     ：Zhong Lei
 """

@@ -2,7 +2,7 @@
 # -*-coding:utf-8 -*-
 
 """
-# File       : gen_iter_09_iter_possible_permutations.py
+# File       : gen_iter_09_iter_possible_permutations_combination.py
 # Time       ：2022/2/23 20:36
 # Author     ：Zhong Lei
 """
@@ -14,7 +14,7 @@ from itertools import permutations
 for p in permutations(items):
     print(p)
 for p in permutations(items, 2):
-    print(2)
+    print(p)
 
 # 组合
 from itertools import combinations
