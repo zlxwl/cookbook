@@ -41,3 +41,26 @@ print(len(s))
 print(s.pop())
 print(s.pop())
 print(s.pop())
+
+
+class Stack2:
+    def __init__(self):
+        self.items = []
+
+    def push(self, value):
+        self.items.append(value)
+
+    def pop(self):
+        return self.items.pop()
+
+    def __len__(self):
+        return len(self.items)
+
+
+from timeit import timeit
+
+s = Stack()
+print(timeit('s.push(1);s.pop()', 'from __main__ import s'))
+s = Stack2()
+print(timeit('s.push(1);s.pop()', 'from __main__ import s'))
+
