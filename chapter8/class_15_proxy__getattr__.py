@@ -2,7 +2,7 @@
 # -*-coding:utf-8 -*-
 
 """
-# File       : class_15_proxy_attr.py
+# File       : class_15_proxy__getattr__.py
 # Time       ：2022/3/21 22:24
 # Author     ：Zhong Lei
 """
