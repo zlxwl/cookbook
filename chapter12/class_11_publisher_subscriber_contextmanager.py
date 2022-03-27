@@ -6,6 +6,12 @@
 # Time       ：2022/3/27 22:32
 # Author     ：Zhong Lei
 """
+# exc = get_exchange('name')
+# exc.attach(some_task)
+# try:
+#     ...
+# finally:
+#     exc.detach(some_task)
 from collections import defaultdict
 from abc import abstractmethod
 from contextlib import contextmanager
