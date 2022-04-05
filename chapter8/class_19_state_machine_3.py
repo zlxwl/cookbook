@@ -2,7 +2,7 @@
 # -*-coding:utf-8 -*-
 
 """
-# File       : class_20_state_machine_3.py
+# File       : class_19_state_machine_3.py
 # Time       ：2022/4/5 12:21
 # Author     ：Zhong Lei
 """
@@ -61,4 +61,3 @@ if __name__ == '__main__':
     c.read()
     c.write('data')
     c.close()
-    
