@@ -6,24 +6,6 @@
 # Time       ：2022/4/5 1:16
 # Author     ：Zhong Lei
 """
-class State_C(object):
-    def action(self, x):
-        # do action for C
-        self.new_action(State_A)
-
-
-class State_B(object):
-    def action(self, x):
-        # do action for B
-        self.new_action(State_C)
-
-
-class State_A:
-    def action(self, x):
-        # do action for A
-        self.new_state(State_B)
-
-
 class State:
     def __init__(self):
         self.new_state(State_A)
@@ -33,6 +15,24 @@ class State:
 
     def action(self, x):
         raise NotImplementedError()
+
+
+class State_C(State):
+    def action(self, x):
+        # do action for C
+        self.new_action(State_A)
+
+
+class State_B(State):
+    def action(self, x):
+        # do action for B
+        self.new_action(State_C)
+
+
+class State_A(State):
+    def action(self, x):
+        # do action for A
+        self.new_state(State_B)
 
 
 class State:
