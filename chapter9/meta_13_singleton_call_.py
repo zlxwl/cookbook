@@ -21,14 +21,32 @@ class Cache(type):
             return obj
 
 
-class Spam(metaclass=Cache):
+# class Spam(metaclass=Cache):
+#     def __init__(self, name):
+#         print('initial spam ({!r})'.format(name))
+#         self.name = name
+
+
+class _Spam:
     def __init__(self, name):
-        print('initial spam ({!r})'.format(name))
         self.name = name
 
 
+_spam_instance = None
+def Spam(*args):
+    global _spam_instance
+    if _spam_instance is not None:
+        return _spam_instance
+    else:
+        _spam_instance = _Spam(*args)
+        return _spam_instance
+
+
 if __name__ == '__main__':
-    s1 = Spam()
-    s2 = Spam()
+    # s1 = Spam()
+    # s2 = Spam()
+    # print(s1 is s2)
+    # print(s1 or s2)
+    s1 = Spam('mike')
+    s2 = Spam('mik')
     print(s1 is s2)
-    print(s1 or s2)

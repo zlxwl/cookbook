@@ -17,6 +17,7 @@ class CachedManager:
         self._cache.clear()
 
 
+
 class Spam:
     manager = CachedManager()
 
