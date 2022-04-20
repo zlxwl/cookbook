@@ -21,7 +21,6 @@ class MatchSignatureMeta(type):
                                     val_sig)
 
 
-
 class Root(metaclass=MatchSignatureMeta):
     pass
 
