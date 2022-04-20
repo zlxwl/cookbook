@@ -10,16 +10,16 @@ class Spam(metaclass=NoInstance):
 
 
 class Singleton(type):
-    def __init__(self, *args, **kwargs):
-        self.__instance = None
-        super(Singleton, self).__init__(*args, **kwargs)
+    def __init__(cls, *args, **kwargs):
+        cls.__instance = None
+        super(Singleton, cls).__init__(*args, **kwargs)
 
-    def __call__(self, *args, **kwargs):
-        if self.__instance is None:
-            self.__instance = super().__call__(*args, **kwargs)
-            return self.__instance
+    def __call__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            cls.__instance = super().__call__(*args, **kwargs)
+            return cls.__instance
         else:
-            return self.__instance
+            return cls.__instance
 
 
 class Spam(metaclass=Singleton):
