@@ -55,5 +55,4 @@ def add(x, y):
 
 if __name__ == '__main__':
     # spam(1, 2, 3)
-    # spam(1, 2, 3, debug=True)
     print(inspect.signature(add))

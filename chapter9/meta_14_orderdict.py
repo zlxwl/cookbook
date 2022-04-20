@@ -43,7 +43,7 @@ class OrderedMeta(type):
 
 class Structure(metaclass=OrderedMeta):
     def as_csv(self):
-        return ','.join(str(getattr(self,name)) for name in self._order)
+        return ','.join(str(getattr(self, name)) for name in self._order)
 
 
 class Stock(Structure):
@@ -57,7 +57,39 @@ class Stock(Structure):
         self.price = price
 
 
+class NoDupOrderedDict(OrderedDict):
+    def __init__(self, clsname):
+        self.clsname = clsname
+        super().__init__()
+
+    def __setitem__(self, key, value):
+        if key in self:
+            raise TypeError('{} already definded in {}'.format(key, self.clsname))
+        super().__setitem__(key, value)
+
+
+class OrderMeta(type):
+    def __new__(cls, clsname, bases, clsdict):
+        d = dict(clsdict)
+        d['_order'] = [name for name in clsdict if name[0] != '_']
+        return type.__new__(cls, clsname, bases, d)
+
+    @classmethod
+    def __prepare__(cls, clsname, bases):
+        return NoDupOrderedDict(clsname)
+
+
+class A(metaclass=OrderMeta):
+    def spam(self):
+        pass
+
+    def spam(self):
+        pass
+
+
 if __name__ == '__main__':
     s = Stock('good', 100, 490.1)
     print(s.name)
     print(s.as_csv())
+
+    a = A()
