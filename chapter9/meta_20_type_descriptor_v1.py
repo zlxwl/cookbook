@@ -1,5 +1,6 @@
 import inspect
 import types
+import time
 
 
 class MultiMethod:
@@ -70,13 +71,35 @@ class Spam(metaclass=MultipleMeta):
         print('bar_2:', s, n)
 
 
+class Date(metaclass=MultipleMeta):
+    def __init__(self, day: int, month: int, year: int):
+        self.day = day
+        self.month = month
+        self.year = year
+
+    def __init__(self):
+        t = time.localtime()
+        self.__init__(t.tm_year, t.tm_mon, t.tm_mday)
+
+    def __repr__(self):
+        return str(self.day) + str(self.month) + str(self.year)
+
 if __name__ == '__main__':
-    s = Spam()
-    s.bar(2, 3)
-    s.bar('hello')
-    s.bar('hello', 5)
-    s.bar(2, 'hello')
-    b = s.bar
-    print(b.__self__)
-    print(b.__func__)
-    print(b)
+    # s = Spam()
+    # s.bar(2, 3)
+    # s.bar('hello')
+    # s.bar('hello', 5)
+    # s.bar(2, 'hello')
+    # b = s.bar
+    # print(b.__self__)
+    # print(b.__func__)
+    # print(b)
+    d = Date(2012, 12, 21)
+    print(d)
+    e = Date()
+    print(e.year)
+    print(e.month)
+    print(e.day)
+
+
+
