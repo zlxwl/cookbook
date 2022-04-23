@@ -22,6 +22,5 @@ if __name__ == '__main__':
                         newbytes,
                         c.co_consts, c.co_names, c.co_varnames, c.co_filename, c.co_name, c.co_firstlineno, c.co_lnotab)
     print(nc)
-
     add.__code__ = nc
     add(2, 3)
